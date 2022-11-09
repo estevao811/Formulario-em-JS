@@ -1,0 +1,80 @@
+
+    body{
+    background-image: linear-gradient(to right, rgb(20, 147, 200), rgb(10, 31, 41));
+
+    }
+    .th{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+
+    }
+    button{
+        background-image: linear-gradient(to right, rgb(20, 147, 200), rgb(10, 31, 41));
+        width: 49%;
+        border: none;
+        padding: 15px;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+    button:hover{
+        background-image: linear-gradient(to right, rgb(10, 31, 41), rgb(10, 31, 41));
+       
+    }
+    td{  
+        padding: 20px;
+        border: 2px solid rgb(12, 10, 10);
+        vertical-align: top;
+        
+    }
+    tr th{
+        color: white;
+        width: 50%;
+        background-color: rgb(3, 17, 80);
+        border-bottom: rgb(22, 22, 22) solid 3px;
+        
+        
+    }
+    tr:hover{
+        background: rgb(3, 17, 80);
+    }
+    table{
+        border: rgb(0, 0, 0) solid 3px;
+        border-bottom: rgb(0, 0, 0) solid 1px;
+        width: 100%;
+        
+    }
+    td, th {
+        vertical-align: top;
+        font-size: 1em;
+        word-wrap: break-word;
+        justify-content: center;
+    }
+
+    input, textarea, select, button{
+        font-size: 1.5em;
+        padding: 5px;
+        margin: 5px;
+        border: solid black 1px;
+    }
+    label{
+        font-weight: bold;
+    }
+    input:focus, textarea:focus, select:focus{
+        background-image: linear-gradient(to right, rgb(20, 147, 200), rgb(10, 31, 41));
+        color: rgb(202, 200, 200);
+    }
+    body{
+        padding-left: 2em;
+        padding-right: 2em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        line-height: 1.6;
+        position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+    }
+    

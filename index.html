@@ -1,0 +1,184 @@
+<!DOCTYPE hmtl>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="cssAT8.css">
+    <title>Atividade 08</title>
+    <style>
+        .th{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+    </style>
+    <script>
+
+        //FUNCAO ADD LINHA  
+        function addNovaLinha(){
+        let tableBody = document.getElementById("idBody");
+        let tr = document.createElement("tr");
+
+        //CELULAS
+        let tdContribuinte = document.createElement("td");
+        let tdEmail = document.createElement("td");
+        let tdInstituicao = document.createElement("td");
+        let tdValorPg = document.createElement("td");
+        let tdExcluir = document.createElement("td");
+
+        //INPUT
+        let nomeContribuinteInput = document.createElement("Input");
+        let emailInput = document.createElement("Input");
+        let instituicaoInput = document.createElement("Select");
+        let valorPgInput = document.createElement("input");
+        let excluir = document.createElement("input");
+
+        //INPUT CONTRIBUINTE
+        nomeContribuinteInput.type = "text";
+        nomeContribuinteInput.id = "nomeContribuinteInput";
+
+        //INPUT EMAIL
+        emailInput.type = "text";
+        emailInput.id = "emailInput";
+
+        //INPUT INSTITUICAO
+        instituicaoInput.id = "instituicaoInput";
+        instituicaoInput.name = "instituicaoInput";
+
+        let opBranco = document.createElement("option");
+        opBranco.value = " ";
+        opBranco.text = " ";
+
+        let opHospital = document.createElement("option");
+         opHospital.value = "hospital";
+         opHospital.text = "Hospital";
+
+        let opCreche = document.createElement("option");
+         opCreche.value = "creche";
+         opCreche.text = "Creche";
+
+        let opMuseu = document.createElement("Option");
+         opMuseu.value = "museu";
+         opMuseu.text = "Museu";
+
+        instituicaoInput.appendChild(opBranco);
+        instituicaoInput.appendChild(opHospital);
+        instituicaoInput.appendChild(opCreche);
+        instituicaoInput.appendChild(opMuseu);
+        
+
+        //INPUT VALOR PG
+        valorPgInput.type = "input";
+        valorPgInput.id = "valorPgInput";
+    
+        //BOTAO EXCLUIR
+        excluir.type = "button";
+        excluir.id = "excluir";
+        excluir.value = "Excluir";
+        excluir.onclick = excluirLinha;
+
+        //CRIANDO LINHA
+        tdContribuinte.appendChild(nomeContribuinteInput);
+        tdEmail.appendChild(emailInput);
+        tdInstituicao.appendChild(instituicaoInput);
+        tdValorPg.appendChild(valorPgInput);
+        tdExcluir.appendChild(excluir);
+
+        //EDICAO CELULAR
+        tr.appendChild(tdContribuinte);
+        tr.appendChild(tdEmail);
+        tr.appendChild(tdInstituicao);
+        tr.appendChild(tdValorPg);
+        tr.appendChild(tdExcluir);
+
+        //EDICAO LINHA TOTAL
+        tableBody.appendChild(tr);
+
+        }
+        //FUNCAO EXCLUIR LINHA
+        function excluirLinha() {
+            let td = this.parentElement;
+            let tr = td.parentElement;
+            let index = tr.rowIndex;
+            let tbody = tr.parentElement;
+            let table = tbody.parentElement;
+            let confirmar = window.confirm("Deseja excluir a linha?");
+            if(confirmar){
+            table.deleteRow(index);
+            }
+
+        }
+        //FUNCAO SALVAR
+        function enviar() {
+            let tableBody = document.getElementById("idBody");
+            let qtdLinhas = tableBody.rows.length;
+            let campo;
+            let confirmar =  true;
+
+            if(qtdLinhas > 0) {
+                let linhas = tableBody.rows;
+                let celulas;
+
+                for(let i = 0; i < qtdLinhas; i++) {
+                    celulas = tableBody.rows [i].cells;
+                    for(let j = 0; j< celulas.length-1; j++) {
+                        campo = celulas[j].firstChild.value;
+
+                        if(campo =="") {
+                            confirmar = false;
+                            break;
+                        }else{
+                            }
+                        }
+                    }
+
+                    switch(confirmar){
+                        case true:
+                            window.alert("Dados enviados com sucesso!!");
+                            break;
+                            case false:
+                                window.alert("Todos campos devem ser preenchidos");
+                                break;
+                    }
+                }else{
+                    console.log("Teste cancela");
+                }
+            }
+    </script>
+</head>
+
+<body>
+        
+        <table width = "180%" style="width:90%;min-width: 90%;"> 
+            <tr>
+                <th colspan="6">Registro de Doações</tr>
+
+            </tr>
+
+            <tr>
+                <th>Nome do Contribuinte</th>
+                <th>E-mail</th>
+                <th>Instituição Beneficiada</th>
+                <th>Valor Pago</th>
+                <th>Excluir</th>
+
+                
+                </tr>
+
+                <tbody id="idBody">
+
+                </tbody>
+                
+        </table>
+        <button type="button" name="" onclick="addNovaLinha()">Inserir Linha</button>
+        <button type="button" name="enviar style= "position: absolute; right: 35px;" onClick="enviar()">Salvar</button>
+<br>
+
+
+</body>
+
+</html>
